@@ -28,21 +28,20 @@ $(document).ready(function() {
       var windSpeed = json.wind.speed;
       var weatherDesc = json.weather[0].main;
 
-      $('div#temp').html(tempF + ' F');
-      $('div#wind_speed').html(windSpeed + ' miles per hour');
-      $('div#desc').html(weatherDesc);
+      $('#temp').html(tempF + ' &#176;F');
+      $('#wind_speed').html(windSpeed);
+      $('#desc').html(weatherDesc);
 
       // Conversion between F and C on click
-      $('div#temp').click(function() {
-        var degreeUnit = $('div#temp').text();
+      $('.tempToggle').click(function() {
+        var degreeUnit = $('#temp').text();
         degreeUnit = degreeUnit.substring(degreeUnit.length - 1, degreeUnit.length);
-        console.log(degreeUnit);
 
         if (degreeUnit == 'F') {
-          $("div#temp").html(tempC + " C");
+          $("#temp").html(tempC + " &#176;C");
         }
         else {
-          $("div#temp").html(tempF + " F");
+          $("#temp").html(tempF + " &#176;F");
         }
       })
     });

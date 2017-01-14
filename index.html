@@ -3,9 +3,12 @@
 <html>
 <head>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Open+Sans:400,700" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 </head>
@@ -13,15 +16,24 @@
 <body>
 
   <div class="container">
-    <h1>freeCodeCamp Zipline</h1>
-    <h2>Local Weather App</h2>
+    <h1>freeCodeCamp (<span class="glyphicon glyphicon-fire"></span>) Zipline</h1>
+    <h3><span id="city"></span> Weather</h3>
 
-    <p>The weather in <span id="city"></span> is:</p>
 
     <div class="row">
-      <div class="info col-sm-4" id="temp"></div>
-      <div class="info col-sm-4" id="wind_speed"></div>
-      <div class="info col-sm-4" id="desc"></div>
+      <div class="info col-sm-4 tempToggle">
+        <strong>Temperature</strong><br>
+        <span id="temp"></span>
+        <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+      </div>
+      <div class="info col-sm-4">
+        <strong>Wind Speed (MPH)</strong><br>
+        <span id="wind_speed"></span>
+      </div>
+      <div class="info col-sm-4">
+        <strong>Description</strong><br>
+        <span id="desc"></span>
+      </div>
     </div>
   </div>
 
