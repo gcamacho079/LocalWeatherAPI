@@ -11,7 +11,8 @@ $(document).ready(function() {
     // Obtains weather data and prints to page
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + ',' + countryCode + '&units=imperial&APPID=' + apiKey, function(json) {
       var tempF = json.main.temp;
-      var tempF = 90;
+      var tempC = (tempF - 32.0)*(5/9);
+      tempC = tempC.toFixed(2);
 
       // Changed background image based on temperature
       if (tempF <= 32) {
@@ -29,23 +30,21 @@ $(document).ready(function() {
 
       $('div#temp').html(tempF + ' F');
       $('div#wind_speed').html(windSpeed + ' miles per hour');
-      $('div#desc').text(weatherDesc);
+      $('div#desc').html(weatherDesc);
 
-/****************************************************************************
-Interactive Components
-****************************************************************************/
+      // Conversion between F and C on click
+      $('div#temp').click(function() {
+        var degreeUnit = $('div#temp').text();
+        degreeUnit = degreeUnit.substring(degreeUnit.length - 1, degreeUnit.length);
+        console.log(degreeUnit);
 
-      //Performs conversion to celsius upon mouseover
-      $("div#temp").mouseenter(function() {
-        var tempC = (tempF - 32.0)*(5/9.0);
-        $("div#temp").html(tempC + " C");
-      });
-
-      //Resets temp to F when mouse leaves
-      $("div#temp").mouseleave(function() {
-        $("div#temp").html(tempF + " F");
-      });
-
+        if (degreeUnit == 'F') {
+          $("div#temp").html(tempC + " C");
+        }
+        else {
+          $("div#temp").html(tempF + " F");
+        }
+      })
     });
   });
 });
