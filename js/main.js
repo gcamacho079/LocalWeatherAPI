@@ -9,7 +9,7 @@ $(document).ready(function() {
     $('#city').html(cityUnquote); //Removes quotes from city name
 
     // Obtains weather data and prints to page
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + ',' + countryCode + '&units=imperial&APPID=' + apiKey, function(json) {
+    $.getJSON("https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=" + city + ',' + countryCode + '&units=imperial&APPID=' + apiKey, function(json) {
       var tempF = json.main.temp;
       var tempC = (tempF - 32.0)*(5/9);
       tempC = tempC.toFixed(2);
