@@ -8,6 +8,7 @@ $(document).ready(function() {
     cityUnquote = city.substring(1, city.length - 1);
     $('#city').html(cityUnquote); //Removes quotes from city name
 
+
     // Obtains weather data and prints to page
     $.getJSON("https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=" + city + ',' + countryCode + '&units=imperial&APPID=' + apiKey, function(json) {
       var tempF = json.main.temp;
